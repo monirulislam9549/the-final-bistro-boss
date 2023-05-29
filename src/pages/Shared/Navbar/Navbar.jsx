@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -13,18 +16,30 @@ const Navbar = () => {
     <>
       <li>
         <Link to="/">Home</Link>
+      </li>
+
+      <li>
         <Link to="/menu">Our Menu</Link>
+      </li>
+      <li>
         <Link to="/order/salad">Order Food</Link>
+      </li>
+      <li>
         <Link to="/secret">Secret</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/mycart">
+          <div className="btn gap-2">
+            <FaShoppingCart></FaShoppingCart>
+            <div className="badge badge-secondary">+{cart?.length || 0}</div>
+          </div>
+        </Link>
       </li>
 
       <li>
         {user ? (
           <>
-            <span>{user?.displayName}</span>
-            <button onClick={handleLogOut} className="btn btn-ghost">
-              Log Out
-            </button>
+            <p onClick={handleLogOut}>Log Out</p>
           </>
         ) : (
           <>
@@ -71,7 +86,9 @@ const Navbar = () => {
         <div className="navbar-end">
           <a className="btn">Get started</a>
         </div>
-
+        <div>
+          <span>{user?.displayName}</span>
+        </div>
         <div className="avatar ml-2">
           <div className="w-12 rounded-full">
             <img src={user?.photoURL} alt="" />
