@@ -10,6 +10,7 @@ const AllUsers = () => {
     const res = await axiosSecure.get("/users");
     return res.data;
   });
+  console.log(users);
 
   const handleMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -61,7 +62,7 @@ const AllUsers = () => {
                 <td>
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
-                      <img src={user.photoURL} alt="" />
+                      <img src={user.photo} alt="" />
                     </div>
                   </div>
                 </td>

@@ -19,12 +19,12 @@ const SignUp = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUserProfile(data.name, data.PhotoUrl)
+      updateUserProfile(data.name, data.photo)
         .then(() => {
           const saveUser = {
             name: data.name,
             email: data.email,
-            photo: data.photoURL,
+            photo: data.photo,
           };
           console.log(saveUser);
           fetch("http://localhost:5000/users", {
@@ -92,7 +92,7 @@ const SignUp = () => {
                   <span className="label-text">Photo Url</span>
                 </label>
                 <input
-                  {...register("PhotoUrl", { required: true })}
+                  {...register("photo", { required: true })}
                   type="text"
                   // name="name"
                   placeholder="Photo Url"
