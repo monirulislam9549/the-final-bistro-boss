@@ -39,12 +39,12 @@ const MyCart = () => {
       <Helmet>
         <title>Bistro | My Cart</title>
       </Helmet>
-      <div className="uppercase font-semibold flex justify-evenly h-[60px] items-center">
+      <div className="uppercase font-semibold flex justify-evenly items-center h-[70px]">
         <h3 className="text-3xl">Total items: {cart.length}</h3>
         <h3 className="text-3xl">Total Amount: {total}</h3>
         <button className="btn btn-warning btn-sm">Pay</button>
       </div>
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-y-scroll scroll-smooth w-full h-[600px] ">
         <table className="table w-full">
           {/* head */}
           <thead>
