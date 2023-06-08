@@ -122,7 +122,7 @@ const Login = () => {
             </form>
             <p>
               <small>
-                New Here? <Link to="/signup">Create an account</Link>{" "}
+                New Here? <Link to="/signup">Create an account</Link>
               </small>
             </p>
             <SocialLogin></SocialLogin>
